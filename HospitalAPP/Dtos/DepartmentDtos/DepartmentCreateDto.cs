@@ -27,7 +27,7 @@ namespace HospitalAPP.Dtos.DepartmentDtos
                 {
                     if (d.File == null)
                     {
-                        context.AddFailure("File", "file can not be empty..");
+                        context.AddFailure("File", "file can' be empty..");
                         return;
                     }
                     if (d.File.Length / 1024 > 300)
