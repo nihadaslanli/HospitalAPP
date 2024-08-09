@@ -2,18 +2,16 @@
 
 namespace HospitalAPP.Dtos.DepartmentDtos
 {
-  
-   public class DepartmentCreateDto
+    public class DepartmentUpdateDto
     {
+
         public string Name { get; set; }
         public int Limit { get; set; }
         public IFormFile File { get; set; }
-
     }
-    public class DepartmentCreateDtoValidator : AbstractValidator<DepartmentCreateDto>
+    public class DepartmentUpdateDtoValidator : AbstractValidator<DepartmentUpdateDto>
     {
-
-        public DepartmentCreateDtoValidator()
+        public DepartmentUpdateDtoValidator()
         {
             RuleFor(d => d.Name)
                 .MaximumLength(20)

@@ -1,8 +1,8 @@
 ﻿
-using HospitalAPP1.DLL.Entities;
+using HospitalAPP.DLL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace HospitalAPP.Data
+namespace HospitalAPP.DLL.Data
 {
     public class HospitalAPPContext:DbContext
     {

@@ -1,4 +1,4 @@
-﻿namespace HospitalAPP1.DLL.Entities
+﻿namespace HospitalAPP.DLL.Entities
 {
     public class Department
     {

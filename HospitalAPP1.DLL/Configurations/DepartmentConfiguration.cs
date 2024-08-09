@@ -1,8 +1,8 @@
-﻿using HospitalAPP1.DLL.Entities;
+﻿using HospitalAPP.DLL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace HospitalApp.DLL.Configurations
+namespace HospitalAPP.DLL.Configurations
 {
     public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
     {
