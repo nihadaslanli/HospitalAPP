@@ -1,12 +1,12 @@
 ﻿
 using AutoMapper;
 using HospitalAPP.DLL.Data;
+using HospitalAPP.DLL.Entities;
 using HospitalAPP.Dtos.DepartmentDtos;
 using HospitalAPP.Extensions;
 using HospitalAPP.Helpers;
-using HospitalAPP.DLL.Entities;
-using HospitalAppApi.Dtos.DepartmentDtos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HospitalAPP.Controllers
 {
@@ -15,7 +15,7 @@ namespace HospitalAPP.Controllers
     [ApiController]
     public class DepartmentController : ControllerBase
     {
-        private readonly HospitalAPP.DLL.Context _context;
+        private readonly HospitalAPPContext _context;
         private readonly IMapper _mapper;
         public DepartmentController(HospitalAPPContext context, IMapper mapper)
         {
@@ -73,13 +73,12 @@ namespace HospitalAPP.Controllers
             var file = departmentUpdateDto.File;
             if (file != null)
             {
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", existDepartment.Image);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", existDepartment.Img);
                 FileHelper.Delete(path);
-                existDepartment.Image = file.Save(Directory.GetCurrentDirectory(), "images");
+                existDepartment.Img = file.Save(Directory.GetCurrentDirectory(), "images");
             }
             existDepartment.Name = departmentUpdateDto.Name;
             existDepartment.Limit = departmentUpdateDto.Limit;
-            existDepartment.UpdateDate = DateTime.Now;
             await _context.SaveChangesAsync();
             return StatusCode(204);
 
@@ -92,7 +91,7 @@ namespace HospitalAPP.Controllers
             var existDepartment = await _context.Departments
                 .FirstOrDefaultAsync(d => d.Id == id);
             if (existDepartment == null) return NotFound();
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", existDepartment.Image);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", existDepartment.Img);
             FileHelper.Delete(path);
             _context.Departments.Remove(existDepartment);
             await _context.SaveChangesAsync();

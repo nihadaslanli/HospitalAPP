@@ -5,6 +5,7 @@ using HospitalAPP.Dtos.DoctorDtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using HospitalAPP.DLL.Data;
 
 namespace HospitalAppApi.Controllers
 {
@@ -12,10 +13,10 @@ namespace HospitalAppApi.Controllers
     [ApiController]
     public class DoctorController : ControllerBase
     {
-        private readonly HospitalAPP.Context _appContext;
+        private readonly HospitalAPPContext _appContext;
         private readonly IMapper _mapper;
 
-        public DoctorController(HospitalAPP.Context appContext, IMapper mapper)
+        public DoctorController(HospitalAPPContext appContext, IMapper mapper)
         {
             _appContext = appContext;
             _mapper = mapper;
@@ -88,7 +89,6 @@ namespace HospitalAppApi.Controllers
                     return Conflict("Group limit reached..");
             }
             _mapper.Map(doctorUpdateDto, existDoctor);
-            existDoctor.UpdateDate = DateTime.Now;
             await _appContext.SaveChangesAsync();
             return NoContent();
         }

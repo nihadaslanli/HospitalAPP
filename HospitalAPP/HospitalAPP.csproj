@@ -19,11 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <ProjectReference Include="..\HospitalAPP1.DLL\HospitalAPP1.DLL.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HospitalAPP1.DLL\HospitalAPP1.DLL.csproj" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

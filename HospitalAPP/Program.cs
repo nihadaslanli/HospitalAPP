@@ -1,13 +1,10 @@
-using FluentValidation.AspNetCore;
 using FluentValidation;
-using HospitalAPP1.DLL.Data;
-using HospitalAPP.Dtos.DepartmentDtos;
+using FluentValidation.AspNetCore;
+using HospitalAPP.DLL.Data;
 using HospitalAPP.Dtos.DepartmentDtos;
 using HospitalAPP.Profiles;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +16,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<HospitalAPP1.DLL.Context>(opt =>
+builder.Services.AddDbContext<HospitalAPPContext>(opt =>
 {
     opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
 });
