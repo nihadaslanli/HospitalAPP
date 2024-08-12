@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
+using HospitalAPP.DLL.Entities;
 using HospitalAPP.Dtos.DepartmentDtos;
 using HospitalAPP.Dtos.DoctorDtos;
-using HospitalAPP.DLL.Entities;
-using HospitalAPP.Dtos.DoctorDtos;
-
 namespace HospitalAPP.Profiles
 {
     public class MapProfile : Profile
