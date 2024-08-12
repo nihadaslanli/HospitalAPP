@@ -16,7 +16,8 @@ namespace HospitalAPP.Profiles
                 (
                 _contextAccessor.HttpContext.Request.Scheme,
                 _contextAccessor.HttpContext.Request.Host.Host,
-               (int)_contextAccessor.HttpContext.Request.Host.Port);
+               (int)_contextAccessor.HttpContext.Request.Host.Port
+               );
             var url = uriBuilder.Uri.AbsoluteUri;
 
             //department
